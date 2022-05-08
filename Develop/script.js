@@ -9,13 +9,26 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var correctPrompts = getPrompts (); 
-  
-  var password = generatePassword();
+  var correctPrompts = getPrompts (); // True of false statement 
   var passwordText = document.querySelector("#password");
+  // below returns password only if correct conditions are selected 
+  if (correctPrompts) {
+    var newPassword = generatePassword();
+    passwordText.value = newPassword;
+  } else {
+    passwordText.value = " ";
+  }
 
-  passwordText.value = password;
+}
 
+function generatePassword () {
+  var password = "";
+
+  for(var i = 0; i < characterLength; i++) {
+    var randomIndex = Math.floor(Math.random() * choiceArray.length);
+    password = password + choiceArray[randomIndex];
+  }
+  return password;
 }
 
 // Add event listener to generate button
