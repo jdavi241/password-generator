@@ -21,6 +21,7 @@ function writePassword() {
 
 }
 
+// Function to generate password
 function generatePassword () {
   var password = "";
 
